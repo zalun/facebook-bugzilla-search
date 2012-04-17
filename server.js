@@ -2,7 +2,7 @@ var http = require("http");
 var url = require("url");
 var querystring = require('querystring');
 
-function start() {
+function start(server_name) {
   function onRequest(request, response) {
     request.setEncoding("utf8");
     request.post_string = '';
@@ -40,7 +40,7 @@ function start() {
   }
 
   http.createServer(onRequest).listen(8888);
-  console.log("Server has started.");
+  console.log(server_name + " server has started.");
 }
 
 exports.start = start;

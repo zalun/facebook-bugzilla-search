@@ -1,2 +1,2 @@
 server = require('./server')
-server.start();
+server.start('Facebook Bugzilla Search');
