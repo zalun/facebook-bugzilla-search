@@ -20,6 +20,7 @@ function start(server_name) {
     var pathname = url.parse(request.url).pathname;
     if (pathname == '/') pathname = '/home';
     if (pathname.charAt(0) == '/') pathname = pathname.substr(1);
+    if (pathname.charAt(pathname.length - 1) == '/') pathname = pathname.substr(0, pathname.length - 1);
 
     try {
       var view = require('./view/' + pathname);
@@ -27,6 +28,7 @@ function start(server_name) {
     catch (exception) {
       response.writeHead(404, {"Content-Type": "text/plain"});
       response.write("No such page");
+      console.log('404. Page requested: ' + pathname);
     }
     request.addListener("end", function() {
       try {
