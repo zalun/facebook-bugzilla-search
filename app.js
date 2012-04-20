@@ -33,6 +33,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/canvas', routes.canvas);
+app.post('/canvas', routes.canvas);
 app.get('/', routes.index);
 
 app.listen(3000, function(){
